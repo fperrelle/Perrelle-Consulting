@@ -5,30 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Perrelle Consulting</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header>
-    <h1>Perrelle Consulting</h1>
-    <p class="tagline">Strategic Support for Focused Leaders</p>
+  <header class="hero">
+    <div class="overlay">
+      <h1>Perrelle Consulting</h1>
+      <p class="tagline">Strategic Support for Focused Leaders</p>
+    </div>
   </header>
 
-  <section id="about">
+  <section id="about" class="fade-in">
     <h2>About Us</h2>
     <p>With over 15 years of business experience, Perrelle Consulting helps leaders cut through the noise and focus on what truly drives growth. From strategic planning to back-office operations, we provide reliable, professional support so you can concentrate on leading your business—not running in circles.</p>
   </section>
 
-  <section id="services">
+  <section id="services" class="fade-in">
     <h2>Our Services</h2>
-    <ul>
-      <li>Business Strategy</li>
-      <li>Organizational Management</li>
-      <li>Data Entry</li>
-      <li>Bookkeeping</li>
-      <li>Financial Management</li>
+    <ul class="services">
+      <li><span class="icon">📊</span> Business Strategy</li>
+      <li><span class="icon">🏢</span> Organizational Management</li>
+      <li><span class="icon">⌨️</span> Data Entry</li>
+      <li><span class="icon">📒</span> Bookkeeping</li>
+      <li><span class="icon">💼</span> Financial Management</li>
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="fade-in">
     <h2>Contact Us</h2>
     <form action="https://formspree.io/fperrelle@gmail.com" method="POST">
       <label for="name">Name:</label>
@@ -47,5 +50,16 @@
   <footer>
     <p>&copy; 2025 Perrelle Consulting. All rights reserved.</p>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
